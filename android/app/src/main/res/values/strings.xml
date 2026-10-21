@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dalia</string>
+    <string name="title_activity_main">Dalia</string>
+    <string name="package_name">app.dalia.videoeditor</string>
+    <string name="custom_url_scheme">app.dalia.videoeditor</string>
+</resources>

@@ -20,22 +20,27 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: Instalar dependencias web de Dalia
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Compilar aplicación web (Vite)
         run: npm run build
 
-      - name: Configurar Java JDK (v17 Temurin)
+      - name: Configurar Java JDK (v21 Temurin)
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '21'
 
-      - name: Configurar Android SDK
+      - name: Configurar Android SDK (Android 16 / API 36)
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platforms;android-36 build-tools;36.0.0 platform-tools'
+
+      - name: Aceptar licencias del Android SDK
+        run: |
+          yes | sdkmanager --licenses || true
 
       - name: Inicializar y sincronizar proyecto Android con Capacitor
         run: |
@@ -50,7 +55,7 @@ jobs:
       - name: Compilar APK en modo Debug
         run: |
           cd android
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug --stacktrace --no-daemon
 
       - name: Subir archivo APK como artefacto descargable
         uses: actions/upload-artifact@v4
