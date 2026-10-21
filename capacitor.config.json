@@ -1,0 +1,8 @@
+{
+  "appId": "app.dalia.videoeditor",
+  "appName": "Dalia",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
