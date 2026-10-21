@@ -1,0 +1,6 @@
+{
+  "name": "Dalia - Editor de Video Móvil",
+  "description": "Editor de video móvil profesional y minimalista para Android con línea de tiempo interactiva, pistas de video y audio, y herramientas creativas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
